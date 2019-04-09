@@ -9,13 +9,13 @@ if ($a -le $b+$c) {
             
         }
         else {
-            write.Read-Host "You cant build a traiangle with these scales"
+            write-Host "You cant build a traiangle with these scales"
         }  
         } 
         else {
-            write.Read-Host "You cant build a traiangle with these scales"
+            write-Host "You cant build a traiangle with these scales"
     }    
 }
 else {
-    write.Read-Host "You cant build a traiangle with these scales"
+    write-Host "You cant build a traiangle with these scales"
 }
