@@ -1,4 +1,4 @@
-$T = Read-Host "Enter Seconds"
+$T = Read-Host "Enter Time"
 $H =  [math]::Floor($T/3600)    #Hours
 $R =  $T - ($H*3600)    #Remained Seconds
 $M =  [math]::Floor($R/60)    #Minutes
