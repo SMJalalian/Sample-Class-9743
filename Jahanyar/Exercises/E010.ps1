@@ -5,4 +5,5 @@ for($i=1 ; $i -le $N ; $i++){
     $Sum = $Sum + $i / [math]::Pow(3 , $i)
     $Sum
 }
+
 Write-host "The Sum is $Sum"
