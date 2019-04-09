@@ -4,8 +4,8 @@
 [int] $r = $n - 2 * $temp
 
 if ($r -eq 0) {
-    write-host "addad zoj ast"
+    write-host "$n addad zoj ast"
 }
 elseif ($r -eq 1) {
-    Write-Host "addad fard ast"
+    Write-Host "$n addad fard ast"
 }
