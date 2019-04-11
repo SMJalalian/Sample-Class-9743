@@ -1,11 +1,21 @@
-[int] $N = Read-Host "Enter Your Number"
-$S = 0
-$P = 1
-for ($i = 1; $i -le $N; $i++) {
-    for ($j = 1; $j -le $i; $j++) {
-        $P = $P * $j
+$Divisors = @()
+#Main Loop
+for($i = 2; $i -le 500; $i++){
+    #Calculating of Divisors for Each Number
+    for($Counter = 1; $Counter -le $i / 2; $Counter++){
+        if($i % $Counter -eq 0){
+            $Divisors += $Counter            
+        }
     }
-    $S += $P
-    $P = 1
+    #Preparing Results for Print
+    $String = "Divisors of $i Are: "
+    for ($k = 0; $k -lt $Divisors.Count; $k++) {
+        $String += $Divisors.GetValue($k)
+        $String += ", "
+    }
+    $String += $i
+    $String
+    #Empty The Output Vars for Next Number
+    $String = ""
+    $Divisors = @()
 }
-Write-Host("Summation of 1! + 2! + ... +$N! Is: $S")
