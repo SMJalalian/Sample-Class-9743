@@ -5,4 +5,4 @@ for($N = 2; $N -le 6; $N += 2){
     $T = $I +$J + $K
     Write-Host("SUM Is: $T")
 }
-Write-Host("The Last Valid N Is: " + ($N - 2) + " And The First Invalid N Is: $N")
+Write-Host("The Last Valid N Is: " + ($N - 2) + ", And The First Invalid N Is: $N")
