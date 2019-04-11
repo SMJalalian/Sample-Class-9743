@@ -6,7 +6,7 @@ while ($A -eq $B) {
     [int] $B = Read-Host "Enter the 2nd Number Again"    
 }
 if($A -lt $B){
-    Write-Host("$A Is The Smallest Number, And the $B Is The Biggest Number.")
+    Write-Host("$A Is The Least Number, And the $B Is The Greatest Number.")
 } else {
-    Write-Host("$B Is The Smallest Number, And the $A Is The Biggest Number.")
+    Write-Host("$B Is The Least Number, And the $A Is The Greatest Number.")
 }
