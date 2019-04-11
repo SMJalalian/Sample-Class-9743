@@ -1,8 +1,9 @@
+clear-host
 $sum = 0
-$num[0..99] = 0
-for ($i=0; $i -lt 10;$i++)
+$num = @()
+for ($i=1; $i -eq 10;$i++)
 {
-    [int]$num[$i] = Read-Host
+    [int]$num[$i] = Read-Host -prompt 'Enter a number'
     $sum += $num[$i]
     Write-Host($num[$i])
 }
