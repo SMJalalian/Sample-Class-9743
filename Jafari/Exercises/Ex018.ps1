@@ -12,4 +12,3 @@ for ($i = 0; $i -lt $Divisors.Count; $i++) {
     $Divisors.GetValue($i)
 }
 Write-Host("And The Summation of Them Is: $SUM")
-
