@@ -1,7 +1,16 @@
 [int64] $Seconds = Read-Host "Enter The Number of Seconds"
 $Output = "These Seconds Are Equal to: "
 $Flag = 0
+if([System.Math]::Floor($Seconds / 3153600000) -gt 0){
+    $Output += [System.Math]::Floor($Seconds / 3153600000) 
+    $Output += " Century(s)"
+    $Seconds =  $Seconds % 3153600000
+    $Flag = 1
+}
 if([System.Math]::Floor($Seconds / 31536000) -gt 0){
+    if($Flag -eq 1){
+        $Output += ", And "
+    }
     $Output += [System.Math]::Floor($Seconds / 31536000) 
     $Output += " Year(s)"
     $Seconds =  $Seconds % 31536000
