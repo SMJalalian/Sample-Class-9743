@@ -1,10 +1,10 @@
-clear-host
+Clear-Host
 $sum = 0
-$num = @()
-for ($i=1; $i -eq 10;$i++)
-{
-    [int]$num[$i] = Read-Host -prompt 'Enter a number'
-    $sum += $num[$i]
-    Write-Host($num[$i])
+[int[]]$ar = @(0)*100
+$ar.Count
+for ($i = 0; $i -lt $ar.Count; $i++) {
+    Write-Host($ar[$i] = Read-Host "Enter number")
+    $sum += $ar[$i]
 }
-Write-Host("Sum" + $sum)
+Write-Host("Sum = " + $sum)
+
