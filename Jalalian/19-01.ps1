@@ -1,5 +1,6 @@
 Get-CimClass CIM_PhysicalMemory | Select-Object -ExpandProperty CimClassProperties
 
+
 Get-CimClass CIM_Service | Select-Object -ExpandProperty CimClassMethods
 Get-CimClass WIN32_Service | Select-Object -ExpandProperty CimClassMethods
 Get-CimInstance -ClassName WIN32_Service -Filter "Name = 'Spooler'" | Invoke-CimMethod -MethodName StopService
