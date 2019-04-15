@@ -1,7 +1,6 @@
 ﻿clear-host
 [string]$n = Read-Host("Please enter number")
 $length = $n.Length
-$t = 0
 $j = 0
 $k = 0
 for($i=$length-1 ; $i -ge 0 ; $i--)
