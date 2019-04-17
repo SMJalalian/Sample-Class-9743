@@ -2,7 +2,7 @@
 [int] $A = Read-Host "Enter First Number"
 [int]$Max = $A
 [int]$i = 1
-for ($j = 0 ; $j -lt $N ) 
+for ($j = 1 ; $j -lt $N ; $j++) 
 {
 if ( $i -gt $N) 
 {
@@ -17,3 +17,4 @@ if ($max -lt $b)
 }
 
 }
+Write-Host "Max is : $max "
