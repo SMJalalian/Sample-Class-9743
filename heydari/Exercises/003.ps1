@@ -1,3 +1,4 @@
+clear-Host
 [int]$a=Read-Host "hoghogh"
 [int]$b=$a/100 * 10
 [int]$c=$a/100 * 5
