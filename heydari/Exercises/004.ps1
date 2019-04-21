@@ -1,3 +1,4 @@
+clear-Host
 [int]$a=Read-Host "Sanie kol"
 [int]$h = $a/3600
 Write-Host "Saat" $h

@@ -1,3 +1,4 @@
+clear-Host
 [int]$n=Read-Host "adad vorodi=" 
 [float]$s=0
 [float]$i=1
