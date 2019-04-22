@@ -8,7 +8,7 @@ for ($i = 100; $i -lt 1000; $i++) {
     $n = [math]::Floor( $n / 10 )    
     }
     $MyArray += $n  
-    if ($MyArray.GetValue(0) -eq $MyArray.GetValue(2) -and $MyArray.GetValue(1) % 2 -eq 0 ) {
+    if ($MyArray[0] -eq $MyArray[2] -and $MyArray[1] % 2 -eq 0 ) {
         $i
     }  
 }
