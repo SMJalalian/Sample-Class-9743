@@ -1,3 +1,4 @@
+clear-Host
 $a = 10 
 $i = 20
 $s = 0
