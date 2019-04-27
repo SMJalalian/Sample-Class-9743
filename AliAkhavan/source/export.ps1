@@ -1,16 +1,10 @@
-$Test = import-csv -Path "C:\local repos\class-9743\AliAkhavan\source\my town.csv" -Encoding UTF8
-foreach ( $X in $Test ) {
-    $x.city
-
-}
+$City = import-csv -Path "C:\local repos\class-9743\AliAkhavan\source\my town.csv" -Encoding UTF8
 
 
-    New-ADOrganizationalUnit -Name $i.ToString() -Path "OU=900000,OU=Domain Objects,DC=PowerShell,DC=Local"
 
-$OUList = Get-ADOrganizationalUnit -Filter * | Where-Object -Property Name -Like 90*
-foreach ( $OU in $OUList ) {
-    if ( $OU.DistinguishedName.Substring(0,9) -ne "OU=900000") {
-        $OU.DistinguishedName
-    }    
-    
-}
+foreach ( $item in $City ) {
+    $Des = $item.TAG + "-" + "شهر " + $item.city 
+    #New-ADOrganizationalUnit -Name $item.code -Path "OU=910000,OU=Domain Objects,DC=PowerShell,DC=Local"
+    New-ADOrganizationalUnit -name $item.code -Description $Des -Path "OU=920000,OU=Domain Objects,DC=PowerShell,DC=Local"
+
+    }  
