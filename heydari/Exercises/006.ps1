@@ -1,3 +1,4 @@
+clear-Host
 $a = Read-Host "adad" 
 $i = 1
 while ($i -le $a) {
