@@ -3,11 +3,10 @@ $Mylist = Get-ADComputer -Filter * | Where-Object -Property name -Like "si*"
 
 foreach ($list in $Mylist) {
     foreach ($city in $myCity) {
-        if ($Mylist.name.substring(3,3) -eq $myCity.tag) {
+        if ($Mylist.name.substring(3,3) -eq $city.TAG) {
+Move-ADObject -name $list -Path ""
 
 
-        New-ADOrganizationalUnit -name $item.code -Description $Des -Path "OU=Computers ,OU=$City.code ,OU=Domain Objects,DC=PowerShell,DC=Local"
-
-    }  
-    }
+    }    
+        }
 }
