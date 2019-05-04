@@ -1,10 +1,11 @@
 $City = import-csv -Path "C:\local repos\class-9743\AliAkhavan\Scripts\my town.csv" -Encoding UTF8
-$Dynamicaddress = import-csv -Path "C:\local repos\class-9743\AliAkhavan\Scripts\my town.csv" -Encoding UTF8
+$Dynamicaddress = import-csv -Path "C:\local repos\class-9743\AliAkhavan\Scripts\finalinfo.csv" -Encoding UTF8
 
 
-foreach ($BB in $Dynamicaddress) 
+foreach ($info in $Dynamicaddress) 
 {
-    
+}
+    for ($i = $info; $i -le 3 ; $i++ ) {
 foreach ( $cc in $City ) {
 $name = "SI" + "-" + $cc.TAG + "-" + "FAV" +  "-"  + 0 + $i.ToString()
     New-ADComputer -name $name -Description $cc.Code.ToString()
@@ -12,9 +13,11 @@ $name = "SI" + "-" + $cc.TAG + "-" + "FAV" +  "-"  + 0 + $i.ToString()
 
     }
     
+  }
 }
 
-for ($i = 1; $i -le 3 ; $i++ ) {
+foreach ($BB in $Dynamicaddress) 
+{
     
     foreach ( $cc in $City ) {
     
@@ -27,8 +30,8 @@ for ($i = 1; $i -le 3 ; $i++ ) {
             
         }
 
-        for ($i = 1; $i -le 4 ; $i++ ) {
-    
+        foreach ($BB in $Dynamicaddress) 
+{
             foreach ( $cc in $City ) {
             
                 $name = "SI" + "-" + $cc.TAG + "-" + "RAV" +  "-"  + 0 + $i.ToString()
