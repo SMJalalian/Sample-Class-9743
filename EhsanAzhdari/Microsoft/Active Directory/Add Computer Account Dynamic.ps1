@@ -5,8 +5,15 @@ $AllComputer = Import-Csv -Path "C:\Users\0820146439\Documents\PowerShell\class-
 foreach ($City in $AllCity) {
     foreach ($Computer in $AllComputer) {
         for ($i = 1; $i -le $Computer.Number ; $i++) {
-            $ComputerName = "ES" + "-" + $City.TAG.ToString() + "-" + $Computer.Name.ToString() + "-" + "0" + $i.ToString() 
-            New-ADComputer -Name $ComputerName -Description $City.Code.ToString()
+            if ($i -lt 10) {
+                $ComputerName = "ES" + "-" + $City.TAG.ToString() + "-" + $Computer.Name.ToString() + "-" + "0" + $i.ToString() 
+                New-ADComputer -Name $ComputerName -Description $City.Code.ToString()
+            }
+            else {
+                $ComputerName = "ES" + "-" + $City.TAG.ToString() + "-" + $Computer.Name.ToString() + "-" + $i.ToString() 
+                New-ADComputer -Name $ComputerName -Description $City.Code.ToString()
+            }
+            
         }
     }
     
