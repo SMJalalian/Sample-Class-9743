@@ -71,32 +71,25 @@ $Test = import-csv -Path "C:\PowerShell\Class-9743\AliShokouhMaghami\Proviences-
     
 foreach ( $X in $Test ) {
     for ($i = 1; $i -le 2; $i++) {
-    $desc = $X.CODE
-    $NA = "FR-" + $X.ID + "-FAV-0" + $i.ToString()
-    $OUList = Get-ADOrganizationalUnit -Filter * | Where-Object -Property Name -Like $X.CODE
-    New-ADComputer -Name $NA -Description $desc
+        $desc = $X.CODE
+        $NA = "FR-" + $X.ID + "-FAV-0" + $i.ToString()
+        $OUList = Get-ADOrganizationalUnit -Filter * | Where-Object -Property Name -Like $X.CODE
+        New-ADComputer -Name $NA -Description $desc
+    }
 
-}
-}
-
-foreach ( $X in $Test ) {
     for ($i = 1; $i -le 3; $i++) {
-    $desc = $X.CODE
-    $NA = "FR-" + $X.ID + "-MAL-0" + $i.ToString()
-    $OUList = Get-ADOrganizationalUnit -Filter * | Where-Object -Property Name -Like $X.CODE
-    New-ADComputer -Name $NA -Description $desc
+        $desc = $X.CODE
+        $NA = "FR-" + $X.ID + "-MAL-0" + $i.ToString()
+        $OUList = Get-ADOrganizationalUnit -Filter * | Where-Object -Property Name -Like $X.CODE
+        New-ADComputer -Name $NA -Description $desc
+    }
 
-}
-}
-
-foreach ( $X in $Test ) {
     for ($i = 1; $i -le 4; $i++) {
-    $desc = $X.CODE
-    $NA = "FR-" + $X.ID + "-RAV-0" + $i.ToString()
-    $OUList = Get-ADOrganizationalUnit -Filter * | Where-Object -Property Name -Like $X.CODE
-    New-ADComputer -Name $NA -Description $desc
-
-}
+        $desc = $X.CODE
+        $NA = "FR-" + $X.ID + "-RAV-0" + $i.ToString()
+        $OUList = Get-ADOrganizationalUnit -Filter * | Where-Object -Property Name -Like $X.CODE
+        New-ADComputer -Name $NA -Description $desc
+    }   
 }
 
 
