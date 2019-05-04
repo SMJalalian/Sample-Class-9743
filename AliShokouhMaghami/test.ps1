@@ -92,19 +92,14 @@ foreach ( $X in $Test ) {
 }
 
 
-
-
-
-
-
 $Test = import-csv -Path "C:\PowerShell\Class-9743\AliShokouhMaghami\Proviences-Fars.csv" -Encoding UTF8
 
 $PCList = Get-ADComputer  -Filter * | Where-Object -Property Name -Like "FR*"
 
-foreach ($item in $PCList) {
-
-    if($PCList.Name -eq $Test.ID){
-    $PCList.Name
+foreach ($item in $Test) {
+    foreach ($item in $PCList) {
+        if($PCList.Name -eq $Test.ID){
+            Move-ADObject 
+            } 
     }
-    
 }
