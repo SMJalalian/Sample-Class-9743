@@ -67,7 +67,6 @@ foreach ( $X in $Test ) {
 
 $Test = import-csv -Path "C:\PowerShell\Class-9743\AliShokouhMaghami\Proviences-Fars.csv" -Encoding UTF8
 
-
     
 foreach ( $X in $Test ) {
     for ($i = 1; $i -le 2; $i++) {
@@ -93,4 +92,19 @@ foreach ( $X in $Test ) {
 }
 
 
+
+
+
+
+
+$Test = import-csv -Path "C:\PowerShell\Class-9743\AliShokouhMaghami\Proviences-Fars.csv" -Encoding UTF8
+
+$PCList = Get-ADComputer  -Filter * | Where-Object -Property Name -Like "FR*"
+
+foreach ($item in $PCList) {
+
+    if($PCList.Name -eq $Test.ID){
+    $PCList.Name
+    }
     
+}
