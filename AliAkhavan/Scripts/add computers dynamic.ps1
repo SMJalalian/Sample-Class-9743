@@ -3,10 +3,11 @@ $Dynamicaddress = import-csv -Path "I:\pws\class-9743\Class-9743-2\AliAkhavan\Sc
 
 foreach ($info in $Dynamicaddress) 
 {
-foreach ( $cc in $City )
- {
     for ($i = 0  ; $i -le $info.Count ; $i++ ) 
     {
+foreach ( $cc in $City )
+ {
+   
 $name = "SI" + "-" + $cc.TAG + "-" + "FAV" +  "-"  + $J + $i.ToString()
 
 if ($i -ge 9) {
@@ -15,16 +16,10 @@ if ($i -ge 9) {
     New-ADComputer -name $name -Description $cc.Code.ToString()
 
     }
-}   
-  }
-
-
-  foreach ($info in $Dynamicaddress) 
-{
+  
 foreach ( $cc in $City )
  {
-    for ($i = 0  ; $i -le $info.Count ; $i++ ) 
-    {
+   
 $name = "SI" + "-" + $cc.TAG + "-" + "MAL" +  "-"  + $J + $i.ToString()
 
 if ($i -ge 9) {
@@ -32,16 +27,10 @@ if ($i -ge 9) {
 }
     New-ADComputer -name $name -Description $cc.Code.ToString()
 
-    }
-}   
-  }
-
-  foreach ($info in $Dynamicaddress) 
-  {
+    } 
   foreach ( $cc in $City )
    {
-      for ($i = 0  ; $i -le $info.Count ; $i++ ) 
-      {
+     
   $name = "SI" + "-" + $cc.TAG + "-" + "RAV" +  "-"  + $J + $i.ToString()
   
   if ($i -ge 9) {
