@@ -3,7 +3,6 @@ $ComputerLists = Get-ADComputer -Filter * | Where-Object -Property Name -Like KE
 foreach ( $Computer in $ComputerLists ) {
     $CName = $Computer.Name
     $Names = $CName.Split("-")
-    $Flag = $false
     foreach ( $City in $Province ) {
         if($Names[1].Equals($City.Tag)){
             $DN = "OU=Computers,"
