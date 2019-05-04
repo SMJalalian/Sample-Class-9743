@@ -8,36 +8,14 @@ foreach ($info in $Dynamicaddress)
 foreach ( $cc in $City )
  {
    
-$name = "SI" + "-" + $cc.TAG + "-" + "FAV" +  "-"  + $J + $i.ToString()
+$name = "SI" + "-" + $cc.TAG + "-" + $info.name +  "-"  + $J + $i.ToString()
 
-if ($i -ge 9) {
-    $J++
-}
     New-ADComputer -name $name -Description $cc.Code.ToString()
 
     }
-  
-foreach ( $cc in $City )
- {
-   
-$name = "SI" + "-" + $cc.TAG + "-" + "MAL" +  "-"  + $J + $i.ToString()
 
 if ($i -ge 9) {
     $J++
-}
-    New-ADComputer -name $name -Description $cc.Code.ToString()
-
-    } 
-  foreach ( $cc in $City )
-   {
-     
-  $name = "SI" + "-" + $cc.TAG + "-" + "RAV" +  "-"  + $J + $i.ToString()
-  
-  if ($i -ge 9) {
-      $J++
-  }
-      New-ADComputer -name $name -Description $cc.Code.ToString()
-  
-      }
-  }   
+}   
     }
+}
