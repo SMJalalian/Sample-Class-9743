@@ -3,10 +3,11 @@ $Dynamicaddress = import-csv -Path "I:\pws\class-9743\Class-9743-2\AliAkhavan\Sc
 
 foreach ($info in $Dynamicaddress) 
 {
-    for ($i = 0  ; $i -le $info.Count ; $i++ ) 
-    {
+
 foreach ( $cc in $City )
  {
+    for ($i = 0  ; $i -le $info.Count ; $i++ ) 
+    {
    
 $name = "SI" + "-" + $cc.TAG + "-" + $info.name +  "-"  + $J + $i.ToString()
 
