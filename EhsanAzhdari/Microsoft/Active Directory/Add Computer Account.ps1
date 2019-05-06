@@ -1,5 +1,5 @@
 Clear-Host
-$AllCity = Import-Csv -Path "C:\Users\0820146439\Documents\PowerShell\class-9743\EhsanAzhdari\Resources\Final.csv" -Encoding UTF8
+$AllCity = Import-Csv -Path "C:\Users\0820146439\Documents\PowerShell\class-9743\EhsanAzhdari\Resources\ProviencesFinal.csv" -Encoding UTF8
 
 foreach ($City in $AllCity) {
     for ($i = 1; $i -le 2; $i++) {
