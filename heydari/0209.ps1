@@ -33,4 +33,4 @@ foreach ($item in $list ){
         $X = "HO" + "-" + $item.TAG + "-" + "RAV-0" + $i.ToString()
         New-ADComputer -Name $X  -Description $item.code
     }
-}
+} 
