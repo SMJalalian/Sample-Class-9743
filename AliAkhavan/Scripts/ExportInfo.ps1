@@ -1,4 +1,11 @@
-Get-WmiObject -Query “SELECT * FROM Win32_LogicalDisk”
+$osinfo = Get-CimInstance Win32_OperatingSystem 
+$RAMinfo = Get-CimInstance Win32_PhysicalMemory
+$hardinfo = Get-CimInstance Win32_DiskDrive
+$computersys = Get-CimInstance Win32_ComputerSystem
 
-
-Get-CimInstance Win32_OperatingSystem | Select-Object  Caption, InstallDate, ServicePackMajorVersion, OSArchitecture, BootDevice,  BuildNumber, CSName | FL
+$osinfo.Caption
+$osinfo.OSType
+$osinfo.Version
+$RAminfo.Capacity
+$hardinfo.Size
+$computersys.UserName
