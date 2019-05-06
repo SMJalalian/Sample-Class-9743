@@ -7,5 +7,6 @@ $osinfo.Caption
 $osinfo.OSType
 $osinfo.Version
 $RAminfo.Capacity
-$hardinfo.Size
+
+
 $computersys.UserName
