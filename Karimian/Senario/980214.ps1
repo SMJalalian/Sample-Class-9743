@@ -7,7 +7,7 @@ foreach ( $ItemCom in $ComList ) {
 #    if ( $ItemCom.DistinguishedName.Substring(0,9) -ne "OU=900000") {
 #        $ItemCom.DistinguishedName
 #    }    
-    
+$CSV    
 }
 
 

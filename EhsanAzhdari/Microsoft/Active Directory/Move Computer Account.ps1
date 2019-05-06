@@ -1,4 +1,5 @@
-$AllCity = Import-Csv -Path "C:\Users\0820146439\Documents\PowerShell\class-9743\EhsanAzhdari\mytown.csv" -Encoding UTF8
+Clear-Host
+$AllCity = Import-Csv -Path "C:\Users\0820146439\Documents\PowerShell\class-9743\EhsanAzhdari\Resources\ProviencesFinal.csv" -Encoding UTF8
 
 $ComputerList = Get-ADComputer -Filter * | Where-Object -Property name -Like "ES*"
 foreach ($Computer in $ComputerList) {
