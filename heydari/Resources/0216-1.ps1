@@ -25,4 +25,4 @@ $j
 
 get-pwsysteminfo -pcname server-05
 
-$x= New-Object -TypeName psobject | Add-Member -MemberType NoteProperty -Name osversion -Value $
+New-Object -TypeName psobject | Add-Member -MemberType NoteProperty -Name osversion -Value $
