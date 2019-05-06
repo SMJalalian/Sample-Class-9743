@@ -8,7 +8,7 @@ foreach ( $Computer in $ComputerLists ) {
             $DN = "OU=Computers,"
             $DN += Get-ADOrganizationalUnit -Filter * | Where-Object -Property Name -Like $City.Code
             $DN
-            continue
+            break
         }
         #if($CName.Contains($City.Tag)){
         #    $DN = "OU=Computers,"
