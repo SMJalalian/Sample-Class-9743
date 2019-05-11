@@ -4,7 +4,7 @@ function get-pwsysteminfo {
     )
   
 Get-CimInstance -ComputerName $pcname -ClassName win32_computersystem | Format-Table -property username -AutoSize -Wrap
-get-CimInstance -ComputerName $pcname -ClassName win32_operatingsystem | Format-Table -property   caption,osarchitecture,version -AutoSize -Wrap
+get-CimInstance -ComputerName $pcname -ClassName win32_operatingsystem | Format-Table -property   csname,caption,osarchitecture,version -AutoSize -Wrap
 
 $c=Get-CimInstance -ComputerName $pcname -ClassName win32_physicalmemory #| Format-Table -property capacity -AutoSize -Wrap
 $s=0
