@@ -1,4 +1,4 @@
-function Get-Systeminfo {
+function Get-BSysteminfo {
     param (
         $PCName
     )
@@ -23,13 +23,6 @@ function Get-Systeminfo {
 
     $L = Get-CimInstance -ComputerName $PCName win32_computersystem # |Select-Object username
 
-    #$os.Name
-    #$os.OSArchitecture
-    #$os.Caption
-    #$os.Version
-    #$memory
-    #$Hard
-    #$L.UserName
     $info = New-Object psobject
     $info | Add-Member -MemberType NoteProperty -Name "OSName" -Value $os.CSName
     $info | Add-Member -MemberType NoteProperty -Name "OSVersio" -Value $os.Version
@@ -39,5 +32,21 @@ function Get-Systeminfo {
     $info | Add-Member -MemberType NoteProperty -Name "Hard" -Value $Hard
     $info | Add-Member -MemberType NoteProperty -Name "Logged in user" -Value $L.UserName
 return $info
+} 
+$PCList = Get-ADComputer -Filter * | Where-Object -Property name -Like "server*"
+$PCList += Get-ADComputer -Filter * | Where-Object -Property name -Like "DC"
+$out = @()
+$TotalRam = 0
+$TotalHard = 0
+foreach ($item in $PCList)
+{
+
+    $Test = Get-BSysteminfo -PCName $item.Name
+    $out += $Test
+    $TotalRam += $Test.Memory
+    $TotalHard += $Test.Hard   
 }
-Get-Systeminfo -PCName Server-02
+$TotalRam
+$TotalHard 
+$out | Export-Csv -Path "C:\Users\1050150309\LocalRepo\class-9743\Jahanyar\File.csv" -Encoding UTF8
+
