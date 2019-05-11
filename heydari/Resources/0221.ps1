@@ -1,49 +1,54 @@
-function get-pwsysteminfo {
+function Get-Systeminfo {
     param (
-        $pcname
+        $PCName
     )
-  
-$x= Get-CimInstance -ComputerName $pcname -ClassName win32_computersystem #| Format-Table -property username -AutoSize -Wrap
-$z= get-CimInstance -ComputerName $pcname -ClassName win32_operatingsystem #| Format-Table -property   caption,osarchitecture,version -AutoSize -Wrap
 
-$c=Get-CimInstance -ComputerName $pcname -ClassName win32_physicalmemory #| Format-Table -property capacity -AutoSize -Wrap
-$s=0
-foreach ($b in $c){
-$s += $b.Capacity
+$os = Get-CimInstance -ComputerName $PCName  Win32_OperatingSystem #| Select-Object osversion, caption, OSArchitecture 
+
+
+$R = Get-CimInstance -ComputerName $PCName Win32_PhysicalMemory #| Select-Object capacity
+
+
+$memory = 0
+foreach ($item in $R)
+{
+    $memory += $item.Capacity 
 }
-$s = $s / (1024*1024)
+$memory = $memory / (1024*1024)
 
 
-$d=Get-CimInstance -ComputerName $pcname -ClassName win32_logicaldisk #|Format-Table -property size -AutoSize -Wrap
-$j=0
-foreach ($e in $d){
-$j += $e.size
+
+$H = Get-CimInstance -ComputerName $PCName win32_diskdrive #| Select-Object size
+$Hard = 0
+foreach ($item in $H)
+{
+    $hard += $item.size
 }
-$j = $j /(1024*1024*1024)
+$hard = $hard / (1024*1024*1024)
 
 
-$x.username
-$z.CSName
-$z.Caption
-$z.OSArchitecture
-$z.Version
-$s
-$j
+$L = Get-CimInstance -ComputerName $PCName win32_computersystem # |Select-Object username
 
-$obj = New-Object -TypeName psobject | Add-Member -MemberType NoteProperty -Name "username" -Value $x
-$obj = New-Object -TypeName psobject | Add-Member -MemberType NoteProperty -Name "version" -Value $z
-$obj = New-Object -TypeName psobject | Add-Member -MemberType NoteProperty -Name "caption" -Value $z
-$obj = New-Object -TypeName psobject | Add-Member -MemberType NoteProperty -Name "osarchitecture" -Value $z
-$obj = New-Object -TypeName psobject | Add-Member -MemberType NoteProperty -Name "capacity" -Value $s
-$obj = New-Object -TypeName psobject | Add-Member -MemberType NoteProperty -Name "size" -Value $j
-$obj = New-Object -TypeName psobject | Add-Member -MemberType NoteProperty -Name "CSName" -Value $1
+
+##$os.Caption
+##$os.Version
+##$memory
+##$Hard
+##$L.UserName
+
+$obj = New-Object -TypeName psobject 
+$obj | Add-Member -MemberType NoteProperty -Name "username" -Value $L.UserName
+$obj | Add-Member -MemberType NoteProperty -Name "version" -Value $os.Version
+$obj | Add-Member -MemberType NoteProperty -Name "caption" -Value $os.Caption
+$obj | Add-Member -MemberType NoteProperty -Name "osarchitecture" -Value $os.OSArchitecture
+$obj | Add-Member -MemberType NoteProperty -Name "capacity" -Value $Hard
+$obj | Add-Member -MemberType NoteProperty -Name "size" -Value $memory
+$obj | Add-Member -MemberType NoteProperty -Name "CSName" -Value $os.CSName
 
 return $obj
-
 }
-get-pwsysteminfo -pcname server-06
 
 
-
+Get-Systeminfo -PCName Server-05
 
 
