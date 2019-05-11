@@ -1,0 +1,10 @@
+﻿"pcname","oscaption","osversion","osArchitecture","totalmemory","hardinfo","pcusername"
+"SERVER-01","Microsoft Windows Server 2019 Datacenter","10.0.17763","64-bit","2020","100.00","POWERSHELL\0922655847"
+"SERVER-02","Microsoft Windows Server 2019 Datacenter","10.0.17763","64-bit","2048","100.00","POWERSHELL\0922772071"
+"SERVER-03","Microsoft Windows Server 2019 Datacenter","10.0.17763","64-bit","2048","100.00","POWERSHELL\0820146439"
+"SERVER-04","Microsoft Windows Server 2019 Datacenter","10.0.17763","64-bit","2048","100.00","POWERSHELL\0943355478"
+"SERVER-05","Microsoft Windows Server 2019 Datacenter","10.0.17763","64-bit","2080","100.00","POWERSHELL\3422132821"
+"SERVER-06","Microsoft Windows Server 2019 Datacenter","10.0.17763","64-bit","2052","100.00","POWERSHELL\1050150309"
+"SERVER-07","Microsoft Windows Server 2019 Datacenter","10.0.17763","64-bit","2100","100.00",
+"SERVER-08","Microsoft Windows Server 2019 Datacenter","10.0.17763","64-bit","2064","100.00",
+"DC","Microsoft Windows Server 2019 Datacenter","10.0.17763","64-bit","2048","60.00",
