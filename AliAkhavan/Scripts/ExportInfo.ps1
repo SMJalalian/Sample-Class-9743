@@ -23,9 +23,11 @@ $Find  = Get-ADComputer -Filter * | Where-Object -Property name -Like "server*" 
 $Find += Get-ADComputer -Filter * | Where-Object -Property name -Like "DC" 
 $infoarray=@()
 
+
 foreach ($item in $Find) {
- 
+
 $infoarray += Get-pwsysteminfo  $item.Name
+
    
 }
 
