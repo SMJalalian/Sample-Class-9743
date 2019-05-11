@@ -107,7 +107,7 @@ foreach ($item in $Test) {
 
 Get-CimInstance Win32_OperatingSystem | Select-Object   Version, Caption, BuildNumber  | FL
 
-Get-CimInstance Win32_ComputerSystem -Property Username -ComputerName.
+Get-CimInstance Win32_ComputerSystem -Property Username -ComputerName .
 
 Get-CimInstance -ClassName Win32_Processor -ComputerName . | Select-Object -ExcludeProperty "CIM*"
 
@@ -115,27 +115,111 @@ Get-CimInstance -ClassName Win32_ComputerSystem -ComputerName . | Select-Object 
 
 Get-CimInstance -ClassName CIM_Memory 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function get-SMinfo {
     param (
         $PCName
     )
-    
+
     $osinfo = Get-CimInstance Win32_OperatingSystem
     $hardware = Get-CimInstance Win32_OperatingSystem
     $totalmemory = Get-CimInstance Win32_PhysicalMemory | Measure-Object -Property capacity -Sum | Foreach {"{0:N2}" -f ([math]::round(($_.Sum / 1GB),2))}
     $hdd = Get-CimInstance Win32_DiskDrive | Measure-Object -Property size -Sum | Foreach {"{0:N2}" -f ([math]::round(($_.Sum / 1GB),2))}
     
     
-    
-    write-host "OS Version:" $osinfo.Version
-    write-host "OS Type:"$osinfo.Caption
-    write-host "OS Version:"$hardware.Version
-    write-host "OS Architectur:"
-    write-host "RAM:"$totalmemory "GB"  
-    write-host "HDD:" $hdd "GB"
-    
+    #write-host "OS Version:" $osinfo.Version
+    #write-host "OS Type:"$osinfo.Caption
+    #write-host "OS Version:"$hardware.Version
+    #write-host "OS Architectur:"
+    #write-host "RAM:"$totalmemory "GB"  
+    #write-host "HDD:" $hdd "GB"
+
+
+$obj = New-Object psObject
+
+Add-Member -InputObject $obj -MemberType NoteProperty -Name "osinfo" -Value $osinfo.Version 
+Add-Member -InputObject $obj -MemberType NoteProperty -Name "hardware" -Value $hardware.Version
+Add-Member -InputObject $obj -MemberType NoteProperty -Name "totalmemory" -Value $totalmemory 
+Add-Member -InputObject $obj -MemberType NoteProperty -Name "hdd" -Value $hdd
+
+
+return $obj
 }
 
 
 
+$X = get-SMinfo -PCName Server-01
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function get-SMinfo {
+    param (
+        $PCName
+    )
+
+    $osinfo = Get-CimInstance Win32_OperatingSystem
+    $hardware = Get-CimInstance Win32_OperatingSystem
+    $totalmemory = Get-CimInstance Win32_PhysicalMemory | Measure-Object -Property capacity -Sum | Foreach {"{0:N2}" -f ([math]::round(($_.Sum / 1GB),2))}
+    $hdd = Get-CimInstance Win32_DiskDrive | Measure-Object -Property size -Sum | Foreach {"{0:N2}" -f ([math]::round(($_.Sum / 1GB),2))}
+    
+    
+     $osinfo.Version
+     $osinfo.Caption
+     $hardware.Version
+     $totalmemory
+     $hdd
+}
