@@ -18,5 +18,15 @@ Add-Member -InputObject $obj -MemberType NoteProperty -Name "pcusername" -Value 
 return $obj
 }
 
-Get-pwsysteminfo -Pcname "Server-02"
 
+$Find  = Get-ADComputer -Filter * | Where-Object -Property name -Like "server*" | Sort-Object -Property Name
+$Find += Get-ADComputer -Filter * | Where-Object -Property name -Like "DC" 
+$infoarray=@()
+
+foreach ($item in $Find) {
+ 
+$infoarray += Get-pwsysteminfo  $item.Name
+   
+}
+
+$infoarray | export-csv -Path "C:\local repos\class-9743\AliAkhavan\excel files\computerinfos.csv" -Encoding UTF8 -NoTypeInformation
