@@ -7,7 +7,7 @@ function Get-pwsysteminfo {
     $totalmemory = Get-CimInstance Win32_PhysicalMemory -ComputerName $Pcname | Measure-Object -Property capacity -Sum | Foreach {"{0:N2}" -f ([math]::round(($_.Sum / 1GB),2))}
     $hardinfo    = Get-CimInstance Win32_DiskDrive -ComputerName $Pcname | Measure-Object -Property size -Sum | Foreach {"{0:N2}" -f ([math]::round(($_.Sum / 1GB),2))}
     
-
+#$computersys.UserName
 #$osinfo.Caption
 #$osinfo.OSType
 #$osinfo.Version
@@ -17,6 +17,7 @@ function Get-pwsysteminfo {
 #$computersys.UserName
 
 $obj = new-object psobject
+Add-Member -InputObject $obj -MemberType NoteProperty -Name "pcname" -Value $computersys.Name
 Add-Member -InputObject $obj -MemberType NoteProperty -Name "oscaption" -Value $osinfo.Caption
 Add-Member -InputObject $obj -MemberType NoteProperty -Name "osversion" -Value $osinfo.Version
 Add-Member -InputObject $obj -MemberType NoteProperty -Name "osArchitecture" -Value $osinfo.OSArchitecture
@@ -26,5 +27,5 @@ Add-Member -InputObject $obj -MemberType NoteProperty -Name "pcusername" -Value 
 return $obj
 }
 
-$X = Get-pwsysteminfo -Pcname Server-02
+Get-pwsysteminfo -Pcname "Server-01"
 
