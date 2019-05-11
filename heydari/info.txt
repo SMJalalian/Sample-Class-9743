@@ -1,0 +1,3 @@
+#TYPE System.Management.Automation.PSCustomObject
+"username","version","caption","osarchitecture","capacity","size","CSName"
+,"10.0.17763","Microsoft Windows Server 2019 Datacenter",,"59.996166229248","2048","DC"

@@ -1,0 +1,11 @@
+﻿#TYPE System.Management.Automation.PSCustomObject
+"OSName","OSVersio","OSArch","OSCaption","Memory","Hard","Logged in user"
+"SERVER-07","10.0.17763","64-bit","Microsoft Windows Server 2019 Datacenter","2100","99.9987173080444",
+"SERVER-04","10.0.17763","64-bit","Microsoft Windows Server 2019 Datacenter","2048","99.9987173080444","POWERSHELL\0943355478"
+"SERVER-06","10.0.17763","64-bit","Microsoft Windows Server 2019 Datacenter","2052","99.9987173080444","POWERSHELL\1050150309"
+"SERVER-02","10.0.17763","64-bit","Microsoft Windows Server 2019 Datacenter","2048","99.9987173080444","POWERSHELL\0922772071"
+"SERVER-03","10.0.17763","64-bit","Microsoft Windows Server 2019 Datacenter","2048","99.9987173080444","POWERSHELL\0820146439"
+"SERVER-05","10.0.17763","64-bit","Microsoft Windows Server 2019 Datacenter","2080","99.9987173080444","POWERSHELL\3422132821"
+"SERVER-01","10.0.17763","64-bit","Microsoft Windows Server 2019 Datacenter","2020","99.9987173080444","POWERSHELL\0922655847"
+"SERVER-08","10.0.17763","64-bit","Microsoft Windows Server 2019 Datacenter","2064","99.9987173080444",
+"DC","10.0.17763","64-bit","Microsoft Windows Server 2019 Datacenter","2048","59.996166229248",
