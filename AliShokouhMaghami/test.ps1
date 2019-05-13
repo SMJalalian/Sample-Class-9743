@@ -13,6 +13,7 @@ $Test
 
 
 
+
 $OUList = Get-ADOrganizationalUnit -Filter * | Where-Object -Property Name -Like 90*
 foreach ( $OU in $OUList ) {
     if ( $OU.DistinguishedName.Substring(0,9) -ne "OU=910000") {
