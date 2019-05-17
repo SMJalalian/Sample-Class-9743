@@ -1,21 +1,21 @@
 Clear-Host
 
-$y= Get-WMIObject win32_operatingsystem 
-$Name=$y.Caption
-$Name
-$version=$y.Version
-$version
-$OP=$y.OSArchitecture
-$OP
-
-$z = Get-WMIObject win32_physicalmemory
-$Cap = $z.Capacity
+$operatingsystem= Get-WMIObject win32_operatingsystem 
+$Cap=$operatingsystem.Caption
 $Cap
+$ver=$operatingsystem.Version
+$ver
+$OSA=$operatingsystem.OSArchitecture
+$OSA
 
-$k=Get-WMIObject win32_diskdrive
-$HS=$k.size
-$HS
+$physicalmemory = Get-WMIObject win32_physicalmemory
+$Capa = $physicalmemory.Capacity
+$Capa
 
-$x=Get-WMIObject Win32_ComputerSystem
-$UN = $x.UserName
+$diskdrive=Get-WMIObject win32_diskdrive
+$si=$diskdrive.size
+$si
+
+$ComputerSystem=Get-WMIObject Win32_ComputerSystem
+$UN = $ComputerSystem.UserName
 $UN
