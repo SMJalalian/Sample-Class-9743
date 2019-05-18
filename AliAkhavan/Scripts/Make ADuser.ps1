@@ -152,10 +152,9 @@ foreach ($item in $usersinfo) {
     $GeneratePass = New-RandomPassword -Length 10 -Lowercase -Uppercase -Numbers -Symbols
     $ConvertPass = ConvertTo-SecureString -String $GeneratePass -AsPlainText -Force
     $AddZeroCM = "0" + $item.CM.ToString()
-    New-ADUser -Name $item.Fname -GivenName $item.Fname -Surname $item.Lname -DisplayName $displayname -SamAccountName $AddZeroCM -UserPrincipalName $AddZeroCM -Path "OU=users,OU=920100,OU=920000,OU=Domain Objects,DC=PowerShell,DC=Local"
-    Get-ADUser $AddZeroCM | Set-ADAccountPassword -NewPassword $ConvertPass
-    
-    
+    New-ADUser -Name $displayname -GivenName $item.Fname -Surname $item.Lname -DisplayName $displayname -SamAccountName $AddZeroCM -UserPrincipalName $AddZeroCM -Path "OU=users,OU=920100,OU=920000,OU=Domain Objects,DC=PowerShell,DC=Local"
+    Get-ADUser $AddZeroCM | Set-ADAccountPassword -NewPassword $ConvertPass 
+    Get-ADUser $AddZeroCM | Enable-ADAccount  
     $Output += $displayname + ',' + $GeneratePass + "\n"
  
     }
