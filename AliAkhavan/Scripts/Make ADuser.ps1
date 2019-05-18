@@ -159,4 +159,4 @@ foreach ($item in $usersinfo) {
  
     }
 
-    
+    $Output = export-csv -Path "C:\local repos\class-9743\AliAkhavan\Scripts\accountinfos.csv" -Encoding UTF8
