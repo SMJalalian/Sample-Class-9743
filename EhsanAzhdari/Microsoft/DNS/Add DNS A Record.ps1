@@ -1,0 +1,2 @@
+Add-DnsServerResourceRecordA -Name ES-01.Router -ZoneName PowerShell.local -IPv4Address 192.168.30.32 -ComputerName DC.powershell.local
+Add-DnsServerResourceRecordA -Name ES-02.Router -ZoneName PowerShell.local -IPv4Address 192.168.30.33 -ComputerName DC.powershell.local
