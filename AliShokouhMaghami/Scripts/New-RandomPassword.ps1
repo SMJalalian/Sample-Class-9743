@@ -141,22 +141,3 @@ function New-RandomPassword {
     	$output
     }
 }
-
-
-$usersinfo = import-csv -Path "C:\local repos\class-9743\AliAkhavan\Scripts\finalnames.csv" -Encoding UTF8
-
-$Output = ""
-foreach ($item in $usersinfo) {
-
-    $displayname = $item.Fname + " " + $item.Lname
-    $GeneratePass = New-RandomPassword -Length 10 -Lowercase -Uppercase -Numbers -Symbols
-    $ConvertPass = ConvertTo-SecureString -String $GeneratePass -AsPlainText -Force
-    $AddZeroCM = "0" + $item.CM.ToString()
-    New-ADUser -Name $displayname -GivenName $item.Fname -Surname $item.Lname -DisplayName $displayname -SamAccountName $AddZeroCM -UserPrincipalName $AddZeroCM -Path "OU=users,OU=920100,OU=920000,OU=Domain Objects,DC=PowerShell,DC=Local"
-    Get-ADUser $AddZeroCM | Set-ADAccountPassword -NewPassword $ConvertPass 
-    Get-ADUser $AddZeroCM | Enable-ADAccount  
-    $Output += $displayname + ',' + $GeneratePass + "\n"
- 
-    }
-
-    $Output = export-csv -Path "C:\local repos\class-9743\AliAkhavan\Scripts\accountinfos.csv" -Encoding UTF8

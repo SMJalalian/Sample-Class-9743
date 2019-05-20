@@ -1,3 +1,4 @@
+Clear-Host
 function New-RandomPassword {
     [CmdletBinding()]
     [OutputType([string])]
@@ -141,22 +142,20 @@ function New-RandomPassword {
     	$output
     }
 }
+# New-ADOrganizationalUnit -Name 980000 -Path "OU=Domain Objects,DC=PowerShell,DC=Local"
 
+$CSV = import-csv -Path "C:\Users\0946907374\Desktop\User.csv" -Encoding UTF8
 
-$usersinfo = import-csv -Path "C:\local repos\class-9743\AliAkhavan\Scripts\finalnames.csv" -Encoding UTF8
-
-$Output = ""
-foreach ($item in $usersinfo) {
-
-    $displayname = $item.Fname + " " + $item.Lname
-    $GeneratePass = New-RandomPassword -Length 10 -Lowercase -Uppercase -Numbers -Symbols
-    $ConvertPass = ConvertTo-SecureString -String $GeneratePass -AsPlainText -Force
-    $AddZeroCM = "0" + $item.CM.ToString()
-    New-ADUser -Name $displayname -GivenName $item.Fname -Surname $item.Lname -DisplayName $displayname -SamAccountName $AddZeroCM -UserPrincipalName $AddZeroCM -Path "OU=users,OU=920100,OU=920000,OU=Domain Objects,DC=PowerShell,DC=Local"
-    Get-ADUser $AddZeroCM | Set-ADAccountPassword -NewPassword $ConvertPass 
-    Get-ADUser $AddZeroCM | Enable-ADAccount  
-    $Output += $displayname + ',' + $GeneratePass + "\n"
- 
-    }
-
-    $Output = export-csv -Path "C:\local repos\class-9743\AliAkhavan\Scripts\accountinfos.csv" -Encoding UTF8
+foreach ( $X in $CSV ) {
+    $X.CM='0'+$X.CM
+    $x.Tell='0'+$x.Tell
+    $FullName=$X.FName+' '+$x.LName
+    $PrName = $x.CM + '@PowerShell.local'
+    $Pass=New-RandomPassword -Length 10 -Uppercase -Lowercase -Symbols
+    $Pass
+    $SecPass=ConvertTo-SecureString $Pass -AsPlainText -Force
+     
+    New-ADUser -MobilePhone $x.Tell  -SamAccountName $X.CM -UserPrincipalName $PrName  -GivenName $X.FName-Surname $x.Lname -Name $FullName  -DisplayName $FullName -Path "OU=980000,OU=Domain Objects,DC=PowerShell,DC=Local" -AccountPassword $SecPass
+    Enable-ADAccount  -Identity  $X.CM
+  }
+  
