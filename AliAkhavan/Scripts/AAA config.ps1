@@ -1,3 +1,5 @@
+#Install-Module -Name Posh-SSH -RequiredVersion 2.0.2
+#Install-Module -Name Posh-Cisco
 function New-RandomPassword {
     [CmdletBinding()]
     [OutputType([string])]
@@ -142,9 +144,6 @@ function New-RandomPassword {
     }
 }
 
-Install-Module -Name Posh-SSH -RequiredVersion 2.0.2
-Install-Module -Name Posh-Cisco
-
 
 Clear-Host
 $ciscoip = Get-DnsServerResourceRecord -ComputerName DC  -ZoneName Powershell.local | Where-Object -Property Hostname -Like SI*
@@ -156,24 +155,22 @@ foreach ($item in $ciscoip) {
     $Name = $item.HostName.Split(".")
     Write-Host($Name[0] + " IP address information .... ") -ForegroundColor Yellow
     $IP = $item.RecordData.IPv4Address.IPAddressToString    
-    $SSH = New-SSHSession -ComputerName $IP -Credential $userpass -AcceptKey
+    New-SSHSession -ComputerName $IP -Credential $userpass -AcceptKey
     $Stream = New-SSHShellStream -Index 0 -Rows 50
     $Stream.WriteLine("aaa new-model") 
     $Stream.WriteLine("aaa authentication login default group radius local")
     $Stream.WriteLine("aaa authorization exec default group radius local if-authenticated ")
     $Stream.WriteLine("radius-server host 192.168.30.210 auth-port 1645 acct-port 1646")
     $Stream.WriteLine("radius-server key $mykey")
-    $salam = Get-NpsRadiusClient -ComputerName DC
-    New-NpsRadiusClient -
-    
-    
-    
-    
 
-
-
+    Invoke-Command -ComputerName DC -ArgumentList $Name[0],$IP,$Mykey -ScriptBlock {
+        New-NpsRadiusClient -Name $args[0] -AuthAttributeRequired $false -Address $args[1] -SharedSecret $args[2] -VendorName "RADIUS Standard"
+    }
 
 
     $Stream.Read()   
     Get-SSHSession | Remove-SSHSession    
 }
+
+#Enter-PSSession -ComputerName dc
+   # $salam = Get-NpsRadiusClient -ComputerName DC
