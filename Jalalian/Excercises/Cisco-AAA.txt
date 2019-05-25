@@ -1,0 +1,6 @@
+aaa new-model
+aaa authentication login default group radius local
+aaa authorization exec default group radius local if-authenticated 
+
+radius-server host X.Y.Z.W auth-port 1645 acct-port 1646
+radius-server key XXYYZZWW
