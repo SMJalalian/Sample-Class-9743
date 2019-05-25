@@ -158,7 +158,7 @@ foreach ( $Record in $List ) {
     $Stream.WriteLine("radius-server key $PSk")
     Get-SSHSession | Remove-SSHSession
 
-    Invoke-Command -ComputerName DC -ArgumentList $Name,$IP,$PSK -ScriptBlock {
-        New-NpsRadiusClient -Name $args[0] -Address $args[1] -AuthAttributeRequired false -SharedSecret $args[2] -VendorName "RADIUS Standard" 
+    Invoke-Command -ComputerName DC -ArgumentList $Name[0],$IP,$PSK -ScriptBlock {
+        New-NpsRadiusClient -Name $args[0] -Address $args[1] -AuthAttributeRequired $false -SharedSecret $args[2] -VendorName "RADIUS Standard" 
     }
 }
