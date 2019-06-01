@@ -1,0 +1,4 @@
+﻿#TYPE System.Management.Automation.PSCustomObject
+"RouterName","RouterIP","Password"
+"KE-01","192.168.30.72","rJogTq2yDU"
+"KE-02","192.168.30.73","l6NuJZ89qU"
