@@ -1,5 +1,5 @@
-#Install-Module -Name Posh-SSH -RequiredVersion 2.0.2
-#Install-Module -Name Posh-Cisco
+Install-Module -Name Posh-SSH -RequiredVersion 2.0.2
+Install-Module -Name Posh-Cisco
 function New-RandomPassword {
     [CmdletBinding()]
     [OutputType([string])]
