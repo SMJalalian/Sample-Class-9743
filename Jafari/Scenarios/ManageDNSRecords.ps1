@@ -1,6 +1,7 @@
 ﻿Clear-Host
 $Today = Get-Date
-$Target = $Today.AddDays(-10)
+[int] $Day = Read-Host("Days of The DNS Records Should Be Kept")
+$Target = $Today.AddDays(-1 * $Day)
 $AllRecords = Get-DnsServerResourceRecord -ZoneName PowerShell.Local
 foreach ( $Record in $AllRecords ) {
     $IP = $Record.RecordData.IPv4Address.IPAddressToString
