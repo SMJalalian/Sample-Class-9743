@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.29001.49
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jalalian", "Jalalian\Jalalian.csproj", "{BE1302CE-6749-48F8-AE58-72C2895117BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jafari", "Jafari\Jafari.csproj", "{5777B7BD-AB62-4F72-9A07-8178E89E4A91}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jafari", "Jafari\Jafari.csproj", "{5777B7BD-AB62-4F72-9A07-8178E89E4A91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Akhavan", "Akhavan\Akhavan.csproj", "{161B3B2A-27A8-4DBF-8AC2-71F7C7290E16}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{5777B7BD-AB62-4F72-9A07-8178E89E4A91}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5777B7BD-AB62-4F72-9A07-8178E89E4A91}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5777B7BD-AB62-4F72-9A07-8178E89E4A91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{161B3B2A-27A8-4DBF-8AC2-71F7C7290E16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{161B3B2A-27A8-4DBF-8AC2-71F7C7290E16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{161B3B2A-27A8-4DBF-8AC2-71F7C7290E16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{161B3B2A-27A8-4DBF-8AC2-71F7C7290E16}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
