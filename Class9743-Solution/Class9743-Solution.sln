@@ -17,6 +17,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Karimian", "Karimian\Karimi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShokouhMaghami", "ShokouhMaghami\ShokouhMaghami.csproj", "{E5C4A33A-2326-4D8E-861E-C348DB59B141}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cisco", "Cisco\Cisco.csproj", "{4796DD48-3E2C-4327-B485-CA52975CCB09}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tools", "Tools\Tools.csproj", "{2B2BF7FF-4B64-423C-8D39-65314BC0DFA0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,14 @@ Global
 		{E5C4A33A-2326-4D8E-861E-C348DB59B141}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E5C4A33A-2326-4D8E-861E-C348DB59B141}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E5C4A33A-2326-4D8E-861E-C348DB59B141}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4796DD48-3E2C-4327-B485-CA52975CCB09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4796DD48-3E2C-4327-B485-CA52975CCB09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4796DD48-3E2C-4327-B485-CA52975CCB09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4796DD48-3E2C-4327-B485-CA52975CCB09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B2BF7FF-4B64-423C-8D39-65314BC0DFA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B2BF7FF-4B64-423C-8D39-65314BC0DFA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B2BF7FF-4B64-423C-8D39-65314BC0DFA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B2BF7FF-4B64-423C-8D39-65314BC0DFA0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
