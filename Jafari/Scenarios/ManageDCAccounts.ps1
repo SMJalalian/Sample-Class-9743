@@ -1,6 +1,6 @@
 Clear-Host
 $Today = Get-Date
-[Tim] $Day = Read-Host("Treshold of inactive Days")
+[int] $Day = Read-Host("Treshold of inactive Days")
 $AllRecords = Search-ADAccount -AccountInactive -TimeSpan $Day | Sort Name
 $DN = "OU=Users,OU=InActive Objects,DC=PowerShell,DC=Local"
 foreach ( $Record in $AllRecords ) {     
