@@ -8,9 +8,23 @@ namespace Jalalian
     [Cmdlet(VerbsDiagnostic.Test,"Class9743")]
     public class TestClass9743Command : Cmdlet
     {
+        [Parameter(Position = 0, Mandatory = true)]
+        public string Name = "";
+
+        [Parameter(Position = 1)]
+        public SwitchParameter ShowOutput;
+
         protected override void ProcessRecord()
         {
-            WriteObject("This is a test of the ProcessRecord template.");
+            if (ShowOutput)
+            {
+                WriteObject("You Type name of " + Name);
+            }
+            else
+            {
+                WriteObject("Output is hidden");               
+            }
+            
         }
     }
 }
