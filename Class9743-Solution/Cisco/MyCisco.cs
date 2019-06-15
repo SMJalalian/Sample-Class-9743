@@ -21,6 +21,7 @@ namespace Cisco
         {
             StringReader strReader = new StringReader(command);
             string result = "";
+            bool MoreFlag = false;
             if (connectionType == "SSH")
             {
                 SshClient device = new SshClient(deviceName, credential.UserName, SecureStringToString(credential.Password));
@@ -53,43 +54,59 @@ namespace Cisco
             {
                 Telnet telnetClient = new Telnet(deviceName, 23);
                 telnetClient.Login(credential.UserName, SecureStringToString(credential.Password), 100);
-                while (true)
+                string line = strReader.ReadLine();
+                if (line != null)
                 {
                     string temp = "";
-                    string line = strReader.ReadLine();
-                    if (line != null)
+                    telnetClient.WriteLine(line);
+                    Thread.Sleep(delay);
+                    temp = telnetClient.Read();
+                    while (true)
                     {
-                        telnetClient.WriteLine(line);
+                        // read output ... 
+                        if (temp.Length >= 0)
+                        {
+                            if (temp.IndexOf("--More--") > 0)
+                            {
+                                MoreFlag = true;
+                                result += temp;
+                                result = result.Remove(result.LastIndexOf(Environment.NewLine));
+                                result += Environment.NewLine;
+                            }                                
+                            else
+                            {
+                                result += temp;
+                                break;
+                            }
+                        }
+                        temp = "";
+                        telnetClient.WriteLine(" ");
                         Thread.Sleep(delay);
                         temp = telnetClient.Read();
-                        result += temp;
-                        if (temp.IndexOf("--More--") > 0)
+                        if (temp.Contains('\b'))
                         {
-                            do
-                            {
-                                telnetClient.Write(" ");
-                                temp = telnetClient.Read();
-                                result += temp;
-                                if (temp.IndexOf("--More--") < 0)
-                                    break;
-                            } while (true);
+                            int index = temp.LastIndexOf('\b');
+                            temp = temp.Substring(index+1);
                         }
                     }
-                    else
-                        break;
-                }
-                telnetClient.Disconnect();
-                if (result.Split('\n').Length > 2)
-                {
-                    result = result.TrimStart();
-                    result = result.TrimEnd();
-                    result = result.Substring(result.IndexOf(Environment.NewLine) + Environment.NewLine.Length);
-                    result = result.Remove(result.LastIndexOf(Environment.NewLine));
+                    
+                    telnetClient.Disconnect();
+                    if (result.Split('\n').Length > 2)
+                    {                        
+                        result = result.TrimStart();
+                        result = result.TrimEnd();
+                        result = result.Substring(result.IndexOf(Environment.NewLine) + Environment.NewLine.Length);
+                        result = result.Remove(result.LastIndexOf(Environment.NewLine));
+                        if (MoreFlag)
+                            result = result.Remove(result.LastIndexOf(Environment.NewLine));
+                    }
                 }
                 else
                     result = null;
+                
                 return result;
             }
+
             return null;
         }
 
