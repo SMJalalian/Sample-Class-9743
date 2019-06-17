@@ -9,8 +9,8 @@ namespace Z_TestConsole
     {
         static void Main(string[] args)
         {
-            System.IO.File.Copy(@"C:\Workspaces\DevOps\SMJalalian\Network Automation\Z_Manifest Module\Network Automation.psd1",
-                                @"C:\Program Files\PowerShell\6\Modules\Network Automation\Network Automation.psd1", true);
+            //System.IO.File.Copy(@"C:\Workspaces\DevOps\SMJalalian\Network Automation\Z_Manifest Module\Network Automation.psd1",
+            //                    @"C:\Program Files\PowerShell\6\Modules\Network Automation\Network Automation.psd1", true);
             //**********************************************************************************************************************
             SecureString SecPass = new SecureString();
             SecPass.AppendChar('a');
@@ -24,8 +24,8 @@ namespace Z_TestConsole
             //string Output = Y.RunCiscoCommand("192.168.100.2","Telnet", "show cdp neighbors", Cred);
             //Console.WriteLine(Output);
 
-            //ShowCDPNeighborsCommand X = new ShowCDPNeighborsCommand();
-            //X.ShowCDPNeighbors("192.168.100.2", "Telnet", Cred);
+            AZH X = new AZH();
+            X.Azhdari("192.168.30.151", "SSH", Cred);
 
             //ShowARPCommand Z = new ShowARPCommand();
             //Z.ShowARP("192.168.100.2", "Telnet", Cred);
