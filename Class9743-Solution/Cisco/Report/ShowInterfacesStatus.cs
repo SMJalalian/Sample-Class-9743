@@ -5,8 +5,8 @@ using System.IO;
 
 namespace Cisco.Report
 {
-    [Cmdlet(VerbsCommon.Show, "AANACiscoMacAddressTable")]
-    public class ShowMacAddressTableCommand : MyReport
+    [Cmdlet(VerbsCommon.Show, "NACiscoMacAddressTable")]
+    public class ShowInterfacesStatusCommand : MyReport
     {
         [Parameter(Position = 0, Mandatory = true, ValueFromPipeline = true, ValueFromPipelineByPropertyName = true)]
         public string DeviceName { get; set; }
@@ -27,22 +27,25 @@ namespace Cisco.Report
 
         protected override void ProcessRecord()
         {
-            WriteObject(ShowMacAddressTable(DeviceName, ConnectionType, Credential));
+            WriteObject(ShowInterfacesStatus(DeviceName, ConnectionType, Credential));
         }
 
         //************************ Global Methodes *********************************
 
-        public List<PSObject> ShowMacAddressTable(string deviceName, string connectionType, PSCredential credential = null,
+        public List<PSObject> ShowInterfacesStatus(string deviceName, string connectionType, PSCredential credential = null,
                                       int delay = 1000, string terminalName = "", uint column = 100, uint row = 200, int buff = 2048)
         {
-            StringReader output = new StringReader(RunCiscoCommand(deviceName, connectionType, "Show MAC-Address-Table", credential, delay, terminalName, column, row, buff));
+            StringReader output = new StringReader(RunCiscoCommand(deviceName, connectionType, "Show Interfaces Status", credential, delay, terminalName, column, row, buff));
             List<PSObject> result = new List<PSObject>();
             List<HeaderDefinition> allAttribs = new List<HeaderDefinition>();
-            allAttribs.Add(new HeaderDefinition("Destination Address"));
-            allAttribs.Add(new HeaderDefinition("Address Type"));
+            allAttribs.Add(new HeaderDefinition("Port"));
+            allAttribs.Add(new HeaderDefinition("Name"));
+            allAttribs.Add(new HeaderDefinition("Status"));
             allAttribs.Add(new HeaderDefinition("VLAN"));
-            allAttribs.Add(new HeaderDefinition("Destination Port"));
-            return FillPSObjectOutput(output, allAttribs, 7);
+            allAttribs.Add(new HeaderDefinition("Duplex"));
+            allAttribs.Add(new HeaderDefinition("Speed"));
+            allAttribs.Add(new HeaderDefinition("Type"));
+            return FillPSObjectOutput(output, allAttribs, 0);
         }
     }
 }

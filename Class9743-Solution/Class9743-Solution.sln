@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cisco", "Cisco\Cisco.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tools", "Tools\Tools.csproj", "{2B2BF7FF-4B64-423C-8D39-65314BC0DFA0}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Z_TestConsole", "Z_TestConsole\Z_TestConsole.csproj", "{BF7A5AF9-55CF-44FD-BFB3-8AE9B8A1A102}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{2B2BF7FF-4B64-423C-8D39-65314BC0DFA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B2BF7FF-4B64-423C-8D39-65314BC0DFA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B2BF7FF-4B64-423C-8D39-65314BC0DFA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF7A5AF9-55CF-44FD-BFB3-8AE9B8A1A102}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF7A5AF9-55CF-44FD-BFB3-8AE9B8A1A102}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF7A5AF9-55CF-44FD-BFB3-8AE9B8A1A102}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF7A5AF9-55CF-44FD-BFB3-8AE9B8A1A102}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
