@@ -24,8 +24,13 @@ namespace Z_TestConsole
             //string Output = Y.RunCiscoCommand("192.168.100.2","Telnet", "show cdp neighbors", Cred);
             //Console.WriteLine(Output);
 
+<<<<<<< HEAD
             ShowARPCommand X = new ShowARPCommand();
             X.ShowARP("192.168.30.151", "Telnet", Cred);
+=======
+            AZH X = new AZH();
+            X.Azhdari("192.168.30.151", "SSH", Cred);
+>>>>>>> 772419e6c85d457c7392790fde7fe038af9fd3b9
 
             //ShowARPCommand Z = new ShowARPCommand();
             //Z.ShowARP("192.168.100.2", "Telnet", Cred);

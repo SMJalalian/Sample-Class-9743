@@ -5,7 +5,7 @@ using System.IO;
 
 namespace Cisco.Report
 {
-    [Cmdlet(VerbsCommon.Show, "NACiscoMacAddressTable")]
+    [Cmdlet(VerbsCommon.Show, "AANACiscoMacAddressTable")]
     public class ShowMacAddressTableCommand : MyReport
     {
         [Parameter(Position = 0, Mandatory = true, ValueFromPipeline = true, ValueFromPipelineByPropertyName = true)]
