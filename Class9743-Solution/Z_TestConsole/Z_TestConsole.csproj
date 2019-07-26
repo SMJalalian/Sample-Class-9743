@@ -18,7 +18,7 @@
     <PackageReference Include="System.Diagnostics.DiagnosticSource" Version="4.5.1" />
     <PackageReference Include="System.DirectoryServices" Version="4.5.0" />
     <PackageReference Include="System.DirectoryServices.AccountManagement" Version="4.5.0" />
-    <PackageReference Include="System.Management.Automation" Version="6.2.1" />
+    <PackageReference Include="System.Management.Automation" Version="6.2.2" />
   </ItemGroup>
 
   <ItemGroup>
